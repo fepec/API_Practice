@@ -13,15 +13,15 @@ function getAlbum() {
     });
 }
 
-function fillData(users) {
+function fillData(photos) {
   let cards = "";
   for (let i = 0; i < 24; i++) {
     cards += `
                 
                   <div class="col col-6 col-sm-4 col-md-2 card">
                     <div class="card-body">
-                      <img class="card-img-top" src="${users[i].url}" alt="Card image cap">
-                        <p class="card-title fs-6 fw-normal">${users[i].title}</p>  
+                      <img class="card-img-top" src="${photos[i].url}" alt="Card image cap">
+                        <p class="card-title fs-6 fw-normal">${photos[i].title}</p>  
                     </div>
                   </div>
                 `;
