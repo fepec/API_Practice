@@ -19,7 +19,8 @@ function fillData(photos) {
     cards += `<div class="col col-6 col-sm-4 col-md-2 card">
                     <div class="card-body">
                       <img class="card-img-top" src="${photos[i].image}" alt="Card image cap">
-                        <p class="card-title fs-6 fw-normal">${photos[i].name}</p>  
+                        <p class="card-title fs-6 fw-normal ">${photos[i].name}</p>  
+                        <p class="card-title fs-6 fw-normal">Species: ${photos[i].species}</p>
                     </div>
                   </div>
                 `;
