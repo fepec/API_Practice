@@ -6,7 +6,7 @@ function getAlbum() {
   fetch(API_ALBUM)
     .then((response) => response.json())
     .then((json) => {
-      fillData(json.results);
+      fillData(json.results), pagination(json.info);
     })
     .catch((error) => {
       console.log("Error consumiendo API");
@@ -22,11 +22,14 @@ function fillData(photos) {
                         <p class="card-title fs-6 fw-normal ">${photos[i].name}</p>  
                         <p class="card-title fs-6 fw-normal">Species: ${photos[i].species}</p>
                     </div>
-                  </div>
-                `;
+                  </div>`;
   };
   document.getElementById("dataAlbum").innerHTML = cards;
   console.log(cards);
+}
+
+function pagination() {
+    
 }
 
 getAlbum()
