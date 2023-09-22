@@ -2,40 +2,53 @@
 const API_POKEMON = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0";
 
 // funciones
+
+function comparePokeId(a,b) {
+// utilizada para en un sort para ordenar Pokémones en orden de id.
+  if (a.id < b.id) {
+    return -1;
+  }
+  if (a.id > b.id) {
+    return 1;
+  }
+  return 0;
+}
+
 function getPokemon(api) {
+  document.getElementById("dataAlbum").innerHTML = ""
   fetch(api)
-    .then((response) => response.json())
+    .then((response) => response.json())  // .json() convierte la respuesta en un array de JS objects
     .then((json) => {
-      fillData(json.results);
+      getPokemonData(json.results);
       pagination(json);
     })
     .catch((error) => {
-      console.log("Error consumiendo API");
+      console.log("Error consumiendo API: ", error);
     });
 }
 
-function fillData(poke) {
-  let cards = "";
-  for (let i = 0; i < poke.length; i++) {
+function fillCards(json) {
+  html = `<div class="col col-6 col-sm-4 col-md-2 card">
+              <div class="card-body">
+                <img class="card-img-top" src="${json.sprites.other["official-artwork"].front_default}" alt="A picture of ${json.name}.">
+                <p class="card-title fs-6 fw-normal ">Number: ${json.id}</p>  
+                <p class="card-title fs-6 fw-normal ">Name: ${json.name}</p>
+              </div>
+            </div>`;
+  document.getElementById("dataAlbum").innerHTML += html;
+}
 
+function getPokemonData(poke) {  
+  console.log(poke)
+  poke.sort(comparePokeId);
+  for (let i = 0; i < poke.length; i++) {
     fetch(poke[i].url)
       .then((response) => response.json())
-      .then((json) => json.sprites.other["official-artwork"].front_default)
-      .then((sprite) => {
-        cards += `<div class="col col-6 col-sm-4 col-md-2 card">
-                    <div class="card-body">
-                      <img class="card-img-top" src="${sprite}" alt="A picture of ${poke[i].name}.">
-                        <p class="card-title fs-6 fw-normal ">${poke[i].name}</p>                          
-                    </div>
-                  </div>`;
-        return cards;
+      .then((json) => {
+        fillCards(json);
       })
-      .then((cards) => {
-        document.getElementById("dataAlbum").innerHTML = cards;
-      })
-
       .catch((error) => {
-        console.log("Error obteniendo imagen.");
+        console.log("Error obteniendo imagen:", error);
       });
   }
 }
