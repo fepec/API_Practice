@@ -18,12 +18,12 @@
       rel="stylesheet"
     />
 
-    <title>API</title>
+    <title>Pokemón</title>
   </head>
   <body>
     <!-- Header -->
 
-    <div class="container position-sticky z-3 top-0 start-0 bg-white">
+    <div class="container position-sticky z-3 top-0 start-0 bg-white mb-4">
       <header
         class="d-flex flex-wrap justify-content-center justify-content-lg-between align-items-center py-3 mb-2 border-bottom"
       >
@@ -31,7 +31,7 @@
           class="d-flex align-items-center mb-3 mb-md-0 justify-content-center"
         >
           <span class="fs-3 border border-2 rounded p-1 px-2 me-3">@fepec</span>
-          <span class="fs-4">API call para traer fotos</span>
+          <span class="fs-4">Pokemón</span>
         </div>
 
         <ul class="nav nav-pills">
@@ -39,23 +39,31 @@
             <a class="nav-link" href="./index.html">People List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./album.html">Photo Album</a>
+            <a class="nav-link" href="./album.html">Photo Album</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./rickAndMorty.html">Rick and Morty</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./pokemon.html">Pokéapi</a>
+            <a class="nav-link active" href="./pokemon.html">Pokéapi</a>
           </li>
         </ul>
       </header>
+
+      <!-- Controls -->
+      <div class="container mb-4 px-0">
+        <ul
+          id="pagination"
+          class="pagination d-flex justify-content-between"
+        ></ul>
+      </div>
     </div>
 
     <!-- Photos -->
     <div class="container text-center">
       <div
         id="dataAlbum"
-        class="dataAlbum d-flex flex-wrap align-content-stretch justify-content-between gap-4"
+        class="dataAlbum d-flex flex-wrap align-content-stretch justify-content-sm-between justify-content-center gap-4"
       ></div>
     </div>
 
@@ -64,6 +72,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/albumApi.js"></script>
+    <script src="./js/pokemon.js"></script>
   </body>
 </html>

@@ -2,8 +2,8 @@
 const API_ALBUM = "https://rickandmortyapi.com/api/character";
 
 // funciones
-function getAlbum() {
-  fetch(API_ALBUM)
+function getAlbum(api) {
+  fetch(api)
     .then((response) => response.json())
     .then((json) => {
       fillData(json.results), pagination(json.info);
@@ -33,11 +33,11 @@ function pagination(info) {
     let prevDisabled = info.prev ? "" : "disabled"
     let nextDisabled = info.next ? "" : "disabled"
 
-    let html = `<li class="page-item">
-                    <a href="${info.prev}" class="page-link ${prevDisabled}">Prev</a>
+    let html = `<li class="page-item ${prevDisabled}">
+                    <a class="page-link" onclick="getAlbum('${info.prev}')" >Prev</a>
                 </li>
-                <li class="page-item">
-                    <a href="${info.next}" class="page-link ${nextDisabled}">Next</a>
+                <li class="page-item ${nextDisabled}">
+                    <a class="page-link" onclick="getAlbum('${info.next}')" >Next</a>
                 </li>`
     
     document.getElementById("pagination").innerHTML = html;
@@ -46,4 +46,4 @@ function pagination(info) {
 
 }
 
-getAlbum()
+getAlbum(API_ALBUM)
