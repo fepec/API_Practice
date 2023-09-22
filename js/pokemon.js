@@ -16,9 +16,7 @@ function getPokemon(api) {
 function fillData(poke) {
   let cards = "";
   for (let i = 0; i < poke.length; i++) {
-    console.log(poke[i].url);
-    let sprite = "";
-    // tempJson.sprites.other["official-artwork"].front_default
+
     fetch(poke[i].url)
       .then((response) => response.json())
       .then((json) => json.sprites.other["official-artwork"].front_default)
