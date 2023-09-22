@@ -23,12 +23,12 @@
   <body>
     <!-- Header -->
 
-    <div class="container position-sticky z-3 top-0 start-0 bg-white">
+    <div class="container position-sticky z-3 top-0 start-0 bg-white mb-4">
       <header
-        class="d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center py-3 mb-4 border-bottom"
+        class="d-flex flex-wrap justify-content-center justify-content-lg-between align-items-center py-3 mb-2 border-bottom"
       >
         <div
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none justify-content-center"
+          class="d-flex align-items-center mb-3 mb-md-0 justify-content-center"
         >
           <span class="fs-3 border border-2 rounded p-1 px-2 me-3">@fepec</span>
           <span class="fs-4">Rick and Morty API call</span>
@@ -46,26 +46,22 @@
           </li>
         </ul>
       </header>
-    </div>
 
     <!-- Controls -->
-    <div class="container mb-4">
-        <button id="btnPrev" type="button" class="button mx-3">
-          Previous
-        </button>
-      </div>
+    <div class="container mb-4 px-0 ">
+        <ul id="pagination" class="pagination d-flex justify-content-between">
 
-      <div class="container mb-4">
-        <button id="btnNext" type="button" class="button mx-3">
-          Next
-        </button>
+        </ul>
       </div>
+    </div>
+
+    
 
     <!-- Photos -->
     <div class="container text-center">
       <div
         id="dataAlbum"
-        class="dataAlbum d-flex flex-wrap align-content-stretch justify-content-between justify-content-center gap-4"
+        class="dataAlbum d-flex flex-wrap align-content-stretch justify-content-sm-between justify-content-center gap-4"
       ></div>
     </div>
 

@@ -25,11 +25,25 @@ function fillData(photos) {
                   </div>`;
   };
   document.getElementById("dataAlbum").innerHTML = cards;
-  console.log(cards);
+//   console.log(cards);
 }
 
-function pagination() {
+function pagination(info) {
+    // Si no hay prev o next en info (aparece null), el botón debe aparecer desactivado.
+    let prevDisabled = info.prev ? "" : "disabled"
+    let nextDisabled = info.next ? "" : "disabled"
+
+    let html = `<li class="page-item">
+                    <a href="${info.prev}" class="page-link ${prevDisabled}">Prev</a>
+                </li>
+                <li class="page-item">
+                    <a href="${info.next}" class="page-link ${nextDisabled}">Next</a>
+                </li>`
     
+    document.getElementById("pagination").innerHTML = html;
+
+
+
 }
 
 getAlbum()
