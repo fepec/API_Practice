@@ -6,7 +6,8 @@ function getPokemon(api) {
   fetch(api)
     .then((response) => response.json())
     .then((json) => {
-      fillData(json.results), pagination(json);
+      fillData(json.results);
+      pagination(json);
     })
     .catch((error) => {
       console.log("Error consumiendo API");
