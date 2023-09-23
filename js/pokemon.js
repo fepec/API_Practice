@@ -56,7 +56,7 @@ function getPokemonData(poke) {
   let pokePromises = [];
   
   for (let i = 0; i < poke.length; i++) {
-    let pokePromise = fetch(poke[i].url).then(response => response.json());
+    let pokePromise = fetch(poke[i].url).then(response => response.json());  // Cuidado! .json() devuelve una PROMESA. 
     pokePromises.push(pokePromise);
       }
   Promise.all(pokePromises)
